@@ -24,3 +24,41 @@ category: Linux
       ```shell
       $ tar -xvzf target.tar.gz
       ```
+5. tcpdump
+   1. 获取指定网卡指定主机的包数据并存入指定文件中
+      ```shell
+      tcpdump -i ens192 host 192.168.254.200 -w cap190715_2009.pcap
+      ```
+6. grep
+   1. 在文件夹中查找字符串
+      ```shell
+      grep -rnw '/path/to/somewhere/' -e 'pattern'
+      ```
+7. sed
+   1. 获取文本中指定行范围
+      ```shell
+      sed -n 5,8p file
+      ```
+8. dd
+   1. 检测磁盘速度
+      ```shell
+      dd if=/dev/zero of=/tmp/output conv=fdatasync bs=384k count=1k; rm -f /tmp/output
+      ```
+
+9. java remote debug
+      ```shell
+      /usr/local/jdk1.8.0_144/bin/java -jar -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=12543 -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=20250 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Djava.rmi.server.hostname=192.168.255.205 -Dspring.profiles.active=test cms_web-0.0.1-SNAPSHOT.war
+      ```
+
+10. tail高亮
+      ```shell
+      tail -f 日志文件 |grep -E “高亮的关键字1|高亮的关键字2|…|高亮的关键字N” -A10 -B10 --color=auto
+      ```
+
+11. docker命令
+    1.  `docker exec`: 在docker中执行bash命令
+        1. `docker exec -it CONTAINER_NAME bash`: 在docker中新建一个bash
+        2. `docker exec -it CONTAINER_NAME jstack PID > threadDump.log`: 将thread dump保存到指定文件中
+        3. `sudo docker cp e4e2ffe62ca0:arthas-boot.jar /tmp/`: 获取容器中的文件
+12. top命令
+    1.  `top -Hp pid`: 显示一个进程的线程运行信息列表
