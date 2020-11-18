@@ -54,3 +54,11 @@ category: Linux
       ```shell
       tail -f 日志文件 |grep -E “高亮的关键字1|高亮的关键字2|…|高亮的关键字N” -A10 -B10 --color=auto
       ```
+
+11. docker命令
+    1.  `docker exec`: 在docker中执行bash命令
+        1. `docker exec -it CONTAINER_NAME bash`: 在docker中新建一个bash
+        2. `docker exec -it CONTAINER_NAME jstack PID > threadDump.log`: 将thread dump保存到指定文件中
+        3. `sudo docker cp e4e2ffe62ca0:arthas-boot.jar /tmp/`: 获取容器中的文件
+12. top命令
+    1.  `top -Hp pid`: 显示一个进程的线程运行信息列表
