@@ -78,7 +78,6 @@ theme: alpha-dust
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: https://github.com/JaedongLee/JaedongLee.github.io.git
+  repo: https://github.com/JaedongLee/jaedongLee.github.io
   branch: master
   
-
